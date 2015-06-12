@@ -1,0 +1,57 @@
+ ------
+ NTLMv2 Servlet Filter
+ ------
+
+NTLMv2 Servlet Filter
+
+ This simple servlet filter performs an NTLMv2 authentication with the 
+ browser client. After successful authentication, a HTTP session is 
+ created and access to the application is granted.
+ 
+ <<NOTE: The filter is NOT 100% production ready!>> The reason being 
+ a hashtable used as a simple way of caching challenge objects created 
+ in one request, before being processed in a following request. That 
+ hashtable should be replaced by a proper caching mechanism (like 
+ {{{http://ehcache.org/}EHCache}}, because under certain circumstances, 
+ the hashtable might keep growing, meaning it's essentially a potential
+ memory leak.
+
+ The example <<<web.xml>>> file shows how to enable the filter in your 
+ web application, and which configuration settings must be provided:
+
++------------------------+
+	<filter>
+		<filter-name>ntlmv2-auth</filter-name>
+		<filter-class>org.ntlmv2.filter.NtlmFilter</filter-class>
+		<init-param>
+			<!-- Windows domain name -->
+			<param-name>ntlm-domain</param-name>
+			<param-value>ACME.CORP</param-value>
+		</init-param>
+		<init-param>
+			<!-- IP-address of domain controller -->
+			<param-name>ntlm-dc</param-name>
+			<param-value>dcone.acme.com</param-value>
+		</init-param>
+		<init-param>
+			<!-- Simple (non-FQDN) hostname of DC host -->
+			<param-name>ntlm-dc-name</param-name>
+			<param-value>dcone</param-value>
+		</init-param>
+		<init-param>
+			<!-- Computer account for connection to DC -->
+			<param-name>ntlm-account</param-name>
+			<param-value>TECHUSER$@ACME.CORP</param-value>
+		</init-param>
+		<init-param>
+			<!-- Password of computer account -->
+			<param-name>ntlm-password</param-name>
+			<param-value>test1234</param-value>
+		</init-param>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>NTLMv2</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
++------------------------+

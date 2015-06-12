@@ -1,0 +1,36 @@
+ ------
+ Release Notes
+ ------
+
+Release Notes
+
+* Release 1.0.4
+
+   * Changed Maven group ID to <<<ch.poweredge.ntlmv2-auth>>>, in 
+     order to comply with Sonatype repository requirements. This 
+     will allow to make the library available in the public 
+     central Maven repository.
+     
+   * Implemented EHCache support in the NTLM filter, getting rid of 
+     the simple hash table that was used before (and posed a potential 
+     memory leak). Now, the filter is essentially production ready.
+
+* Release 1.0.3
+
+   * Fixing dependency problem with JCIFS library which is not
+     available in central repository, by adding it to the
+     project in the new submodule <<<jcifs-lib>>>
+
+* Release 1.0.2
+
+   * Maven POM improvements
+
+* Release 1.0.1
+
+   * Mavenized, various fixes and clean-ups
+ 
+* Release 1.0.0
+ 
+   * Initial Release
+ 
+ 

@@ -1,0 +1,10 @@
+ ------
+ NTLMv2 Filter-Using Demo Application
+ ------
+
+NTLMv2 Filter-Using Demo Application
+
+ This simple "hello-world" web application demonstrates how to apply 
+ the NTLMv2 authentication filter. Deploy this application in the 
+ servlet container of your choice, configure the filter in the 
+ <<<web.xml>>>, and see it doing its magic.

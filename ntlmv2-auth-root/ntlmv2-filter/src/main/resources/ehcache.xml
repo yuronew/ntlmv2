@@ -1,0 +1,30 @@
+<ehcache>
+	<!--
+		
+		$Id: ehcache.xml,v 1.2 2006/12/12 13:04:04 pta Exp $
+		
+		Default ehcache file.
+		See the xml within the ehcache.jar for details about
+		the configuration
+	-->
+	<diskStore path="java.io.tmpdir" />
+	
+    <defaultCache
+        maxElementsInMemory="10000"
+        eternal="false"
+        overflowToDisk="true"
+        timeToIdleSeconds="120"
+        timeToLiveSeconds="120"
+        diskPersistent="false"
+        diskExpiryThreadIntervalSeconds="120"/>
+	
+	<cache name="ntlmChallengeCache"
+	  maxElementsInMemory="10000"
+      eternal="false"
+      timeToIdleSeconds="120"
+      timeToLiveSeconds="120"
+      diskPersistent="false"
+      overflowToDisk="false">
+	</cache>
+
+</ehcache>

@@ -1,0 +1,31 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<parent>
+		<artifactId>ntlmv2-auth-root</artifactId>
+		<groupId>ch.poweredge.ntlmv2-auth</groupId>
+		<version>1.0.4</version>
+	</parent>
+
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>ntlmv2-lib</artifactId>
+  <name>NTLMv2 Handling Java Classes</name>
+  <packaging>jar</packaging>
+  <description>NTLMv2-capable JCIFS extension based on Liferay 
+  (http://www.liferay.com) code.</description>
+    
+  <dependencies>
+    
+	<!-- Run-time dependencies -->
+    <dependency>
+			<groupId>org.apache.jcifs</groupId>
+      <artifactId>jcifs</artifactId>
+      <version>${jcifs.version}</version>
+    </dependency>
+	<dependency>
+	  <groupId>org.slf4j</groupId>
+	  <artifactId>slf4j-api</artifactId>
+	  <version>${slf4j.version}</version>
+	</dependency>
+  </dependencies>
+  
+</project>

@@ -1,0 +1,29 @@
+ ------
+ NTLMv2 Authentication
+ ------
+
+NTLMv2 Authentication Library and Servlet Filter
+
+ This project implements an extension of the Java-based JCIFS API which allows 
+ to authenticate browser clients for a Java web application with NTLMv2 
+ (which JCIFS does not support on the server side today).
+
+ This filter re-uses code which was copied from the open-source 
+ {{{http://www.liferay.com/}Liferay Portal}}, because the code in its original form had too many 
+ dependencies to other Liferay functionality to use it directly in its original form. 
+ However, I left the copied classes unchanged as much as possible, including all the 
+ "author" tags with the names of the original authors.
+
+ Since "Liferay" is available under the LGPL, copying code and making it available 
+ in new form should be no problem.
+
+ This project contains:
+
+   * An API (JAR-library) which provides the NTLMv2-functionality on top of JCIFS.
+   
+   * An example servlet SSO-filter, more or less usable as it is, which shows how to use the API.
+   
+   * A simple hello-world demo application which shows how to use / configure the filter.
+   
+   * Clean Maven-2 multi-module project structure.
+ 

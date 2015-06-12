@@ -1,0 +1,9 @@
+Disable / Enable NTLMv2 in Windows 7/Vista clients:
+===================================================
+
+- Click Start > All Programs > Accessories > Run and type secpol.msc in the Open box, and then click OK.
+- Click Local Policies > Security Options > Network Security: LAN Manager authentication level.
+- Click Send LM & NTLM - use NTLMv2 session security if negotiated.
+- Click Apply.
+
+Changes should be active immediately, without a reboot.

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://java.sun.com/xml/ns/javaee"
+xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+
+	<filter>
+       	<filter-name>ntlmv2-auth</filter-name>
+       	<filter-class>org.ntlmv2.filter.NtlmFilter</filter-class>
+		<init-param>
+			<!-- Windows domain name -->
+			<param-name>ntlm-domain</param-name>
+			<param-value>ACME.CORP</param-value>
+		</init-param>
+		<init-param>
+			<!-- IP-address of domain controller -->
+			<param-name>ntlm-dc</param-name>
+			<param-value>dcone.acme.com</param-value>
+		</init-param>
+		<init-param>
+			<!-- Simple (non-FQDN) hostname of DC host -->
+			<param-name>ntlm-dc-name</param-name>
+			<param-value>dcone</param-value>
+		</init-param>
+		<init-param>
+			<!-- Computer account for connection to DC -->
+			<param-name>ntlm-account</param-name>
+			<param-value>TECHUSER$@ACME.CORP</param-value>
+		</init-param>
+		<init-param>
+			<!-- Password of computer account -->
+			<param-name>ntlm-password</param-name>
+			<param-value>test1234</param-value>
+		</init-param>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>NTLMv2</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+</web-app>

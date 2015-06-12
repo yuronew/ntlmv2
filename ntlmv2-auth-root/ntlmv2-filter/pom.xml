@@ -1,0 +1,42 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<parent>
+		<artifactId>ntlmv2-auth-root</artifactId>
+		<groupId>ch.poweredge.ntlmv2-auth</groupId>
+		<version>1.0.4</version>
+	</parent>
+
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>ntlmv2-filter</artifactId>
+  <name>NTLMv2 Servlet Filter</name>
+  <packaging>jar</packaging>
+  <description>NTLMv2-capable servlet authentication filter.</description>
+  
+  <dependencies>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>ntlmv2-lib</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+	<dependency>
+		<groupId>ehcache</groupId>
+		<artifactId>ehcache</artifactId>
+		<version>${ehcache.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>commons-collections</groupId>
+		<artifactId>commons-collections</artifactId>
+		<version>3.2.1</version>
+	</dependency>
+  
+	<!-- Compile-time dependencies -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>servlet-api</artifactId>
+      <version>${servlet-api.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    
+  </dependencies>
+</project>

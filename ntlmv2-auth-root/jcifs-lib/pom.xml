@@ -1,0 +1,41 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<parent>
+		<artifactId>ntlmv2-auth-root</artifactId>
+		<groupId>ch.poweredge.ntlmv2-auth</groupId>
+		<version>1.0.4</version>
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>jcifs-lib</artifactId>
+	<name>JCIFS library deployment module</name>
+	<packaging>pom</packaging>
+	<description>This module makes sure, JCIFS is available in your local repository
+	in the required version (in case it's not in any public repository).</description>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-install-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>install-jcifs</id>
+						<phase>package</phase>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+						<configuration>
+							<file>${basedir}/src/lib/jcifs-${jcifs.version}.jar</file>
+							<groupId>org.apache.jcifs</groupId>
+							<artifactId>jcifs</artifactId>
+							<version>${jcifs.version}</version>
+							<packaging>jar</packaging>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+  
+</project>
